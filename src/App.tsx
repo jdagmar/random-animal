@@ -7,7 +7,7 @@ import {
   animalRequestedAction,
   gotAnimalResponseAction,
 } from './State';
-import { Card, Button, ButtonGroup, Header } from './components';
+import { Card, Button, ButtonGroup, Header, MainContent } from './components';
 import * as AnimalApi from './API/animal';
 
 export const AppContext = React.createContext([
@@ -26,13 +26,13 @@ export const App = () => {
   }, []);
 
   return (
-    <main>
+    <MainContent>
       <Header />
       <ButtonGroup>
         <Button animalType="Cat" onClick={requestAnimal} />
         <Button animalType="Dog" onClick={requestAnimal} />
       </ButtonGroup>
       <Card animal={state.currentAnimal} />
-    </main>
+    </MainContent>
   );
 };
