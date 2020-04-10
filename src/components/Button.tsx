@@ -11,7 +11,7 @@ const FilledButton = styled.button`
   background-color: #b24968;
   color: #ffffff;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   margin: 0.5rem;
   font-family: 'Sen', sans-serif;
   font-size: 1.2rem;

@@ -7,8 +7,9 @@ type Props = {
 
 const InlineButtonGroup = styled.div`
   display: flex;
-  justify-content: between;
+  justify-content: center;
   width: 100%;
+  margin-bottom: 2rem;
 `;
 
 export const ButtonGroup = (props: Props) => {
