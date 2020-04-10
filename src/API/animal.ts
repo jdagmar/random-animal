@@ -20,13 +20,15 @@ const getCat = (): Promise<AnimalResponse> =>
   fetch('https://aws.random.cat/meow')
     .then(response => response.json())
     .then((data): AnimalResponse => succeededResponse(data.file))
-    .catch(error => responseFailed('Could not get cat'));
+    .then(response => delayPromise(response, 1000))
+    .catch(() => responseFailed('Could not get cat'));
 
 const getDog = (): Promise<AnimalResponse> =>
   fetch('https://random.dog/woof.json')
     .then(response => response.json())
     .then((data): AnimalResponse => succeededResponse(data.url))
-    .catch(error => responseFailed('Could not get dog'));
+    .then(response => delayPromise(response, 1000))
+    .catch(() => responseFailed('Could not get dog'));
 
 const responseFailed = (reason: string): AnimalResponse => ({
   response: 'fail',
@@ -37,3 +39,10 @@ const succeededResponse = (url: string): AnimalResponse => ({
   response: 'success',
   url,
 });
+
+const delayPromise = <T>(response: T, timeOut: number) =>
+  new Promise<T>(resolve => {
+    setTimeout(() => {
+      resolve(response);
+    }, timeOut);
+  });
