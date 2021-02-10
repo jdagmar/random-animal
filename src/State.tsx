@@ -23,6 +23,7 @@ export type Animal =
   | {
       tag: 'got animal';
       url: string;
+      type: 'video' | 'image';
     }
   | { tag: 'waiting' }
   | { tag: 'placeholder' }
@@ -53,6 +54,7 @@ export const reducer = (state: State, action: Action): State => {
           currentAnimal: {
             tag: 'got animal',
             url: action.payload.url,
+            type: action.payload.tag,
           },
         };
       }

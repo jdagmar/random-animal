@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Animal } from '../State';
-import { CatIcon } from './CatIcon';
 
 type Props = {
   animal: Animal;
@@ -25,50 +24,57 @@ const Paragraph = styled.p`
   font-size: 1.2rem;
 `;
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
+const shimmer = keyframes`
   100% {
-    transform: rotate(360deg);
+    transform: translateX(100%);
   }
 `;
 
-const Spinner = styled.div`
+const Skeleton = styled.div`
+  width: 350px;
+  height: 350px;
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  position: relative;
+  overflow: hidden;
+  background-color: #dddbdd;
 
   &:after {
-    content: ' ';
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid #fff;
-    border-color: #6c5fa7 transparent #fff transparent;
-    animation: ${rotate} 1.2s linear infinite;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    content: '';
+    animation: ${shimmer} 2s infinite;
   }
 `;
-// handle mp4 files
+
 export const Card = (props: Props) => {
   const getCardContent = () => {
     switch (props.animal.tag) {
       case 'got animal':
-        return (
+        return props.animal.type === 'video' ? (
+          <video controls>
+            <source src={props.animal.url} type="video/mp4" />
+          </video>
+        ) : (
           <ImageWrapper>
             <Image src={props.animal.url} alt="" />
           </ImageWrapper>
         );
       case 'fail':
-        return (
-          <Paragraph>Failed to fetch image {props.animal.reason}</Paragraph>
-        );
-      case 'placeholder':
-        return <CatIcon size={90} />;
+        return <Paragraph>{props.animal.reason}</Paragraph>;
+
       case 'waiting':
-        return <Spinner></Spinner>;
+        return <Skeleton></Skeleton>;
     }
   };
 
