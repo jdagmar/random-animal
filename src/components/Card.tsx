@@ -6,10 +6,12 @@ type Props = {
   animal: Animal;
 };
 
+const mediaSize = '350px';
+
 const Image = styled.img`
   max-width: 100%;
-  width: 350px;
-  height: 350px;
+  width: ${mediaSize};
+  height: ${mediaSize};
   object-fit: cover;
 `;
 
@@ -20,8 +22,8 @@ const ImageWrapper = styled.div`
 `;
 
 const Paragraph = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
+  color: #ffffff;
+  font-size: 1.3rem;
 `;
 
 const shimmer = keyframes`
@@ -31,14 +33,15 @@ const shimmer = keyframes`
 `;
 
 const Skeleton = styled.div`
-  width: 350px;
-  height: 350px;
+  width: ${mediaSize};
+  height: ${mediaSize};
   display: inline-block;
   position: relative;
   overflow: hidden;
   background-color: #dddbdd;
 
   &:after {
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
@@ -52,7 +55,6 @@ const Skeleton = styled.div`
       rgba(255, 255, 255, 0.5) 60%,
       rgba(255, 255, 255, 0)
     );
-    content: '';
     animation: ${shimmer} 2s infinite;
   }
 `;
@@ -62,7 +64,7 @@ export const Card = (props: Props) => {
     switch (props.animal.tag) {
       case 'got animal':
         return props.animal.type === 'video' ? (
-          <video controls>
+          <video height={mediaSize} width={mediaSize} controls>
             <source src={props.animal.url} type="video/mp4" />
           </video>
         ) : (
