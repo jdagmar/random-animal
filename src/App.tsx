@@ -32,7 +32,7 @@ export const App = () => {
             dispatch(
               gotAnimalResponseAction({
                 response: 'fail',
-                reason: 'failed to fetch image',
+                reason: 'Failed to fetch 🥎',
               })
             );
 
@@ -48,8 +48,16 @@ export const App = () => {
     <MainContent>
       <Header />
       <ButtonGroup>
-        <Button animalType="Cat" onClick={requestAnimal} text="cat 🐱" />
-        <Button animalType="Dog" onClick={requestAnimal} text="dog 🐶" />
+        <Button
+          animalType="Cat"
+          onClick={requestAnimal}
+          text="Cat pic plz 🐱"
+        />
+        <Button
+          animalType="Dog"
+          onClick={requestAnimal}
+          text="Dog pic plz 🐶"
+        />
       </ButtonGroup>
       <Card animal={state.currentAnimal} />
     </MainContent>
