@@ -5,8 +5,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background: teal;
+    background: #16697a;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.8;
   }
 `;
 
