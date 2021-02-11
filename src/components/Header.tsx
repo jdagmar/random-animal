@@ -2,28 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
-  background-color: white;
   width: 100%;
-  margin-bottom: 2rem;
-  padding-bottom: 2.5rem;
 `;
 const HeaderContent = styled.header`
   margin: auto;
-  // max-width: 64rem;
-  color: teal;
+  color: #16697a;
 `;
 
 const MainHeading = styled.h1`
-  padding: 0.5rem 1rem;
-  font-family: 'Sen', sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  background-color: #ffffff;
+  margin: 0;
+  padding: 1.5rem 1rem;
+  font-size: clamp(2rem, 1.2rem + 1.3333vw, 3rem);
 `;
 
 const Preamble = styled.p`
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+  color: #ffffff;
+  padding: 2.5rem 1rem;
+  font-size: clamp(1.5rem, 1.2rem + 1.3333vw, 2rem);
 `;
 
 export const Header = () => {
