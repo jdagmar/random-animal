@@ -10,15 +10,20 @@ type Props = {
 
 const FilledButton = styled.button`
   cursor: pointer;
-  text-transform: uppercase;
-  background-color: #b24968;
-  color: #ffffff;
+  background-color: #db6400;
+  color: #181a18;
   border: none;
   padding: 0.7rem 1.6rem;
   margin: 0.5rem;
-  font-family: 'Sen', sans-serif;
-  font-size: clamp(1rem, 4vw, 1.2rem);
+  letter-spacing: 1px;
+  font-size: 1.2rem;
   border-radius: 0.25rem;
+
+    &:hover {
+      background-color: #ffa62b;
+      transition: background-color 500ms ease-in-out;
+    }
+  }
 `;
 
 export const Button = (props: Props) => {
