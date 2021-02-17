@@ -10,6 +10,9 @@ const InlineButtonGroup = styled.div`
   justify-content: center;
   width: 100%;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
 `;
 
 export const ButtonGroup = (props: Props) => {

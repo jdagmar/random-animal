@@ -13,12 +13,15 @@ const Image = styled.img`
   width: ${mediaSize};
   height: ${mediaSize};
   object-fit: cover;
+  border-radius: 0.25rem;
 `;
 
 const ImageWrapper = styled.div`
   max-width: 475px;
   max-height: 475px;
   margin: 0.5rem auto;
+  position: relative;
+  z-index: 2;
 `;
 
 const Paragraph = styled.p`
@@ -39,6 +42,7 @@ const Skeleton = styled.div`
   position: relative;
   overflow: hidden;
   background-color: #dddbdd;
+  border-radius: 0.25rem;
 
   &:after {
     content: '';
