@@ -5,10 +5,14 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background: #16697a;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Overpass', sans-serif;
     line-height: 1.8;
+    background-color: #16697a;
+  }
+
+  body, html, #root {
+    height: 100%;
   }
 `;
 
