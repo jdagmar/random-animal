@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/random-animal/static/js/main.a1692dc5.chunk.js",
-    "main.js.map": "/random-animal/static/js/main.a1692dc5.chunk.js.map",
+    "main.js": "/random-animal/static/js/main.8a19dfd1.chunk.js",
+    "main.js.map": "/random-animal/static/js/main.8a19dfd1.chunk.js.map",
     "runtime-main.js": "/random-animal/static/js/runtime-main.f2b32d99.js",
     "runtime-main.js.map": "/random-animal/static/js/runtime-main.f2b32d99.js.map",
     "static/js/2.b34d6fa3.chunk.js": "/random-animal/static/js/2.b34d6fa3.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.f2b32d99.js",
     "static/js/2.b34d6fa3.chunk.js",
-    "static/js/main.a1692dc5.chunk.js"
+    "static/js/main.8a19dfd1.chunk.js"
   ]
 }
