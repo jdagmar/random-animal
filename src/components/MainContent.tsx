@@ -10,6 +10,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 100%;
 `;
 
 export const MainContent = (props: Props) => {
