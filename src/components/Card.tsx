@@ -1,27 +1,33 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { device } from '../css/breakpoints';
 import { Animal } from '../State';
 
 type Props = {
   animal: Animal;
 };
 
-const mediaSize = '350px';
+const mediaSizeSm = '250px';
+const mediaSizeMd = '350px';
 
 const Image = styled.img`
-  max-width: 100%;
-  width: ${mediaSize};
-  height: ${mediaSize};
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 0.25rem;
 `;
 
-const ImageWrapper = styled.div`
-  max-width: 475px;
-  max-height: 475px;
-  margin: 0.5rem auto;
+const MediaWrapper = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 3;
+
+  width: ${mediaSizeSm};
+  height: ${mediaSizeSm};
+
+  @media only screen and ${device.md} {
+    width: ${mediaSizeMd};
+    height: ${mediaSizeMd};
+  }
 `;
 
 const Paragraph = styled.p`
@@ -36,13 +42,18 @@ const shimmer = keyframes`
 `;
 
 const Skeleton = styled.div`
-  width: ${mediaSize};
-  height: ${mediaSize};
-  display: inline-block;
   position: relative;
+  z-index: 3;
   overflow: hidden;
   background-color: #dddbdd;
   border-radius: 0.25rem;
+  width: ${mediaSizeSm};
+  height: ${mediaSizeSm};
+
+  @media only screen and ${device.md} {
+    width: ${mediaSizeMd};
+    height: ${mediaSizeMd};
+  }
 
   &:after {
     content: '';
@@ -68,13 +79,15 @@ export const Card = (props: Props) => {
     switch (props.animal.tag) {
       case 'got animal':
         return props.animal.type === 'video' ? (
-          <video height={mediaSize} width={mediaSize} controls>
-            <source src={props.animal.url} type="video/mp4" />
-          </video>
+          <MediaWrapper>
+            <video height="100%" width="100%" controls>
+              <source src={props.animal.url} type="video/mp4" />
+            </video>
+          </MediaWrapper>
         ) : (
-          <ImageWrapper>
+          <MediaWrapper>
             <Image src={props.animal.url} alt="" />
-          </ImageWrapper>
+          </MediaWrapper>
         );
       case 'fail':
         return <Paragraph>{props.animal.reason}</Paragraph>;
