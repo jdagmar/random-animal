@@ -63,12 +63,14 @@ export const App = () => {
           <Button
             animalType="Cat"
             onClick={requestAnimal}
-            text="Cat pic plz 🐱"
+            text="Cat pic plz"
+            emoji="🐱"
           />
           <Button
             animalType="Dog"
             onClick={requestAnimal}
-            text="Dog pic plz 🐶"
+            text="Dog pic plz"
+            emoji="🐶"
           />
         </ButtonGroup>
       </TextContent>
