@@ -17,7 +17,7 @@ const Main = styled.main`
     content: '';
     width: 100%;
     height: 100%;
-    bottom: -50%;
+    bottom: -30%;
     left: 0;
     background-repeat: no-repeat;
     background-image: url('${process.env.PUBLIC_URL}/img/wave.svg');
